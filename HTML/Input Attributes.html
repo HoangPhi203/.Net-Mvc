@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ví dụ về Input Attributes</title>
+</head>
+<body>
+    <h1>Luu Hoang Phi_2121051185 &lt;input&gt;</h1>
+    
+    <form action="/submit" method="post">
+        <!-- Thuộc tính type -->
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập"><br><br>
+
+        <!-- Thuộc tính required -->
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <!-- Thuộc tính disabled -->
+        <label for="disabledInput">Trường bị vô hiệu hóa:</label>
+        <input type="text" id="disabledInput" name="disabledInput" disabled><br><br>
+
+        <!-- Thuộc tính readonly -->
+        <label for="readonlyInput">Trường chỉ đọc:</label>
+        <input type="text" id="readonlyInput" name="readonlyInput" value="Không thể chỉnh sửa" readonly><br><br>
+
+        <!-- Thuộc tính maxlength -->
+        <label for="maxlengthInput">Nhập tối đa 10 ký tự:</label>
+        <input type="text" id="maxlengthInput" name="maxlengthInput" maxlength="10"><br><br>
+
+        <!-- Thuộc tính min và max -->
+        <label for="age">Tuổi:</label>
+        <input type="number" id="age" name="age" min="1" max="100"><br><br>
+
+        <!-- Thuộc tính pattern -->
+        <label for="phone">Số điện thoại:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Nhập 10 chữ số"><br><br>
+
+        <!-- Thuộc tính autofocus -->
+        <label for="autofocusInput">Trường tự động focus:</label>
+        <input type="text" id="autofocusInput" name="autofocusInput" autofocus><br><br>
+
+        <!-- Thuộc tính value -->
+        <label for="defaultValue">Giá trị mặc định:</label>
+        <input type="text" id="defaultValue" name="defaultValue" value="Giá trị mặc định"><br><br>
+
+        <!-- Thuộc tính placeholder -->
+        <label for="placeholderInput">Nhập địa chỉ email:</label>
+        <input type="email" id="placeholderInput" name="placeholderInput" placeholder="example@example.com"><br><br>
+
+        <!-- Nút submit -->
+        <input type="submit" value="Gửi">
+    </form>
+</body>
+</html>

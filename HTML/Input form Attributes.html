@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luu Hoang Phi_2121051185</title>
+</head>
+<body>
+    <h1>Đăng ký tài khoản</h1>
+    <h2>Luu Hoang Phi_2121051185</h2>
+    <form action="/submit-form" method="POST">
+        <!-- Text Input -->
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required>
+        <br><br>
+
+        <!-- Password Input -->
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" minlength="6" required>
+        <br><br>
+
+        <!-- Email Input -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Nhập email" required>
+        <br><br>
+
+        <!-- Number Input -->
+        <label for="age">Tuổi:</label>
+        <input type="number" id="age" name="age" placeholder="Nhập tuổi" min="18" max="100">
+        <br><br>
+
+        <!-- Date Input -->
+        <label for="birthdate">Ngày sinh:</label>
+        <input type="date" id="birthdate" name="birthdate">
+        <br><br>
+
+        <!-- Checkbox -->
+        <label for="subscribe">Đăng ký nhận bản tin:</label>
+        <input type="checkbox" id="subscribe" name="subscribe" checked>
+        <br><br>
+
+        <!-- Radio Buttons -->
+        <label>Giới tính:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Nam</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Nữ</label>
+        <br><br>
+
+        <!-- Dropdown Select -->
+        <label for="country">Quốc gia:</label>
+        <select id="country" name="country">
+            <option value="vn">Việt Nam</option>
+            <option value="us">Hoa Kỳ</option>
+            <option value="uk">Anh Quốc</option>
+        </select>
+        <br><br>
+
+        <!-- Textarea -->
+        <label for="bio">Giới thiệu bản thân:</label>
+        <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Viết một chút về bản thân..."></textarea>
+        <br><br>
+
+        <!-- File Input -->
+        <label for="avatar">Tải lên ảnh đại diện:</label>
+        <input type="file" id="avatar" name="avatar" accept="image/*">
+        <br><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Đăng ký">
+    </form>
+</body>
+</html>
