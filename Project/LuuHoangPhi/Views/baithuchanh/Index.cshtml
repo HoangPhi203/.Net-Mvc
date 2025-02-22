@@ -1,0 +1,14 @@
+<form asp-action="Index">
+    <input type="string" name="FullName"placeholder="Họ và tên"/>
+    <input type="int" name="Tuoi"placeholder="Tuổi"/>
+    <input type="number" name="CanNang" placeholder="Cân Nặng"/>
+    <input type="string" name="ChieuCao"placeholder="Chiều Cao"/>
+    <input type="submit" value="Send"/>
+</form>
+<h5>@ViewBag.message</h5>
+<form asp-action="Index">
+    <input type="double" name=" DiemA" placeholder="Điểm A"/>
+    <input type="double" name=" DiemB" placeholder="Điểm B"/>
+    <input type="double" name=" DiemC" placeholder="Điểm C"/>
+</form>
+<h2>@ViewBag.message</h2>
