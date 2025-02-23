@@ -1,14 +1,16 @@
 <form asp-action="Index">
-    <input type="string" name="FullName"placeholder="Họ và tên"/>
-    <input type="int" name="Tuoi"placeholder="Tuổi"/>
-    <input type="number" name="CanNang" placeholder="Cân Nặng"/>
-    <input type="string" name="ChieuCao"placeholder="Chiều Cao"/>
+    <label>Nhập dữ liệu:</label>
+    <input type="text" name="FullName"placeholder="Họ và tên"/>
+    <input type="text" name="Tuoi"placeholder="Tuổi"/>
+    <input type="text" name="CanNang" placeholder="Cân Nặng"/>
+    <input type="text" name="ChieuCao"placeholder="Chiều Cao"/>
+
+    <label>Nhập điểm:</label>
+    <input type="text" name="DiemA" placeholder="Điểm A"/>
+    <input type="text" name="DiemB" placeholder="Điểm B"/>
+    <input type="text" name="DiemC" placeholder="Điểm C"/>
     <input type="submit" value="Send"/>
 </form>
-<h5>@ViewBag.message</h5>
-<form asp-action="Index">
-    <input type="double" name=" DiemA" placeholder="Điểm A"/>
-    <input type="double" name=" DiemB" placeholder="Điểm B"/>
-    <input type="double" name=" DiemC" placeholder="Điểm C"/>
-</form>
-<h2>@ViewBag.message</h2>
+<h1>@ViewBag.message</h1>
+<h2>@ViewBag.dtb</h2>
+<h3>@ViewBag.dtb1</h3>

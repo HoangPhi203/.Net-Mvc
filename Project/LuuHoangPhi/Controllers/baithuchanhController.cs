@@ -10,17 +10,24 @@ public class baithuchanhController : Controller
         return View();
     }
     [HttpPost]
-    public IActionResult Index(int CanNang, int ChieuCao,Person person)
+    public IActionResult Index( Person person)
     {
-        var result =CanNang/((ChieuCao/100)*(ChieuCao/100));
+        var result =person.CanNang/((person.ChieuCao/100)*(person.ChieuCao/100));
+        var dtb =(person.DiemA*0.6)+(person.DiemB*0.3)+(person.DiemC*0.1);
+        if(dtb<5){
+            ViewBag.dtb1 =$"Bạn : {person.FullName} có điểm trung bình là: {dtb} ,bạn được bằng trung bình";
+        }
+        else
+        if(dtb>5 && dtb<6.5){
+            ViewBag.dtb1 =$"Bạn : {person.FullName} có điểm trung bình là: {dtb}, bạn được bằng khá";
+        }
+        else
+        if(dtb>=6.5 && dtb<8){
+            ViewBag.dtb1 =$"Bạn : {person.FullName} có điểm trung bình là: {dtb}, bạn được bằng giỏi";
+        }
         ViewBag.message = $"Xin chào {person.FullName} {person.Tuoi} tuổi có chiều cao: {person.ChieuCao} cm và cân nặng: {person.CanNang} kg Chỉ sô BMI là: {result}";
+        ViewBag.dtb = $"Điểm A: {person.DiemA} Điểm B: {person.DiemB} Điểm C: {person.DiemC} DTB là : {dtb}";
         return View();
     }
-    [HttpPost]
-    public IActionResult Index(double DiemA, double DiemB, double DiemC, Person person)
-    {
-        var dtp =(DiemA*0.6)+(DiemB*0.3)+(DiemC*0.1);
-        ViewBag.message =$"Điểm thành phần của bạn là: {person.DiemA} {person.Diem} {person.DiemC} {dtp}";
-        return View();
-    }
+   
 }
