@@ -9,6 +9,9 @@ namespace Models
         public double DiemA { get;set; }
         public double DiemB { get;set; }
         public double DiemC { get;set; }
+        public string? TenSP { get;set; }
+        public double GiaCa { get;set; }
+        public double SoLuong { get;set; }
     }
     
 }
