@@ -10,25 +10,25 @@ public class baithuchanhController : Controller
         return View();
     }
     [HttpPost]
-    public IActionResult Index( Person person)
+    public IActionResult Index( Baithuchanh baithuchanh)
     {
-        var result =person.CanNang/((person.ChieuCao/100)*(person.ChieuCao/100));
-        var dtb =(person.DiemA*0.6)+(person.DiemB*0.3)+(person.DiemC*0.1);
-        var ThanhTien =person.GiaCa*person.SoLuong;
+        var result =baithuchanh.CanNang/((baithuchanh.ChieuCao/100)*(baithuchanh.ChieuCao/100));
+        var dtb =(baithuchanh.DiemA*0.6)+(baithuchanh.DiemB*0.3)+(baithuchanh.DiemC*0.1);
+        var ThanhTien =baithuchanh.GiaCa*baithuchanh.SoLuong;
         if(dtb<5){
-            ViewBag.dtb1 =$"Bạn : {person.FullName} có điểm trung bình là: {dtb} ,bạn được bằng trung bình";
+            ViewBag.dtb1 =$"Bạn : {baithuchanh.FullName} có điểm trung bình là: {dtb} ,bạn được bằng trung bình";
         }
         else
         if(dtb>5 && dtb<6.5){
-            ViewBag.dtb1 =$"Bạn : {person.FullName} có điểm trung bình là: {dtb}, bạn được bằng khá";
+            ViewBag.dtb1 =$"Bạn : {baithuchanh.FullName} có điểm trung bình là: {dtb}, bạn được bằng khá";
         }
         else
         if(dtb>=6.5 && dtb<8){
-            ViewBag.dtb1 =$"Bạn : {person.FullName} có điểm trung bình là: {dtb}, bạn được bằng giỏi";
+            ViewBag.dtb1 =$"Bạn : {baithuchanh.FullName} có điểm trung bình là: {dtb}, bạn được bằng giỏi";
         }
-        ViewBag.message = $"Xin chào {person.FullName} {person.Tuoi} tuổi có chiều cao: {person.ChieuCao} cm và cân nặng: {person.CanNang} kg Chỉ sô BMI là: {result}";
-        ViewBag.dtb = $"Điểm A: {person.DiemA} Điểm B: {person.DiemB} Điểm C: {person.DiemC} DTB là : {dtb}";
-        ViewBag.ThanhTien =$" Tên Sản phẩm: {person.TenSP} Giá cả: {person.GiaCa} Số lượng: {person.SoLuong} Tổng thành tiền là: {ThanhTien}  ";
+        ViewBag.message = $"Xin chào {baithuchanh.FullName} {baithuchanh.Tuoi} tuổi có chiều cao: {baithuchanh.ChieuCao} cm và cân nặng: {baithuchanh.CanNang} kg Chỉ sô BMI là: {result}";
+        ViewBag.dtb = $"Điểm A: {baithuchanh.DiemA} Điểm B: {baithuchanh.DiemB} Điểm C: {baithuchanh.DiemC} DTB là : {dtb}";
+        ViewBag.ThanhTien =$" Tên Sản phẩm: {baithuchanh.TenSP} Giá cả: {baithuchanh.GiaCa} Số lượng: {baithuchanh.SoLuong} Tổng thành tiền là: {ThanhTien}  ";
         return View();
     }
    
