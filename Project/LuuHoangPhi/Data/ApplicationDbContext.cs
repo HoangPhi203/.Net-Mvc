@@ -8,5 +8,6 @@ namespace LuuHoangPhi.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {}
         public DbSet<Person> Person { get;set; }
+        public DbSet<LuuHoangPhi.Models.Daily> Daily { get; set; } = default!;
     }
 }
