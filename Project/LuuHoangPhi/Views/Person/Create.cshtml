@@ -1,12 +1,19 @@
 @model LuuHoangPhi.Models.Person
 
 @{
-    ViewData["Title"] = "Create"; 
+    ViewData["Title"] = "Create";
 }
 <h1>Create</h1>
 
 <h4>Person</h4>
-<hr />
+
+<form asp-action="Upload" enctype="multipart/form-data">
+    <div class="row d-flex gap-2 ">
+        <input type="file" class="form-control w-50" name="file">
+        <button class="btn btn-success" style="max-width:8em" type="submit">Upload</button>
+    </div>
+
+</form>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -37,5 +44,7 @@
     <a asp-action="Index">Back to List</a>
 </div>
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

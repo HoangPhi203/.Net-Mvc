@@ -1,14 +1,15 @@
+using System;
 using LuuHoangPhi.Data;
 using LuuHoangPhi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
+using LuuHoangPhi.Models.Process;
 namespace LuuHoangPhi.Controllers
 {
     public class PersonController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private ExcelProcess _excelProcess = new ExcelProcess();
         public PersonController(ApplicationDbContext context)
         {
             _context = context;
@@ -22,6 +23,14 @@ namespace LuuHoangPhi.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> DeleteAll()
+        {
+          var LstPerson =await _context.Person.ToListAsync();
+           _context.RemoveRange(LstPerson);
+          await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FullName,Address")]Person person)
@@ -71,8 +80,45 @@ namespace LuuHoangPhi.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            return View(person);
+            return View(person);}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if (file!=null)
+            {
+                string fileExtension = Path.GetExtension(file.FileName);
+                if (fileExtension !=".xls" && fileExtension !=".xlsx")
+                {
+                    ModelState.AddModelError("","Please choose excel file to upload!");
+                }
+                else
+                {
+                    var fileName = file.FileName;
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory() + "/Upload/Excels", fileName);
+                    var fileLocation = new FileInfo(filePath).ToString();
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                        var dt = _excelProcess.ExcelToDataTable(fileLocation);
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            var ps = new Person();
+                            ps.Id = dt.Rows[i][0].ToString();
+                            ps.FullName = dt.Rows[i][1].ToString();
+                            ps.Address = dt.Rows[i][2].ToString();
+                            _context.Add(ps);
+                        }
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+                }
+            }
+            return RedirectToAction("Create");
         }
+        
+
+
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Person == null)
