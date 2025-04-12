@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <form asp-action="Index">
+        <input type="text" name="name" placeholder="Nhập vào tên">
+        <input type="text" name="address" placeholder="Nhâp vào địa chỉ">
+        <input type="submit" value="Send">
+    </form>
+    <h1>@ViewBag.Message</h1>
+</div>

@@ -1,0 +1,22 @@
+<form asp-action="Index">
+    <label>Nhập dữ liệu:</label>
+    <input type="text" name="FullName"placeholder="Họ và tên"/>
+    <input type="text" name="Tuoi"placeholder="Tuổi"/>
+    <input type="text" name="CanNang" placeholder="Cân Nặng"/>
+    <input type="text" name="ChieuCao"placeholder="Chiều Cao"/>
+
+    <label>Nhập điểm:</label>
+    <input type="text" name="DiemA" placeholder="Điểm A"/>
+    <input type="text" name="DiemB" placeholder="Điểm B"/>
+    <input type="text" name="DiemC" placeholder="Điểm C"/>
+
+    <label>Nhập dữ liệu mua hàng:</label>
+    <input type="text" name="TenSP" placeholder="Tên Sản phẩm">
+    <input type="text" name="GiaCa" placeholder="Giá cả">
+    <input type="text" name=" SoLuong" placeholder="Số lượng">
+    <input type="submit" value="Send"/>
+</form>
+<h1>@ViewBag.message</h1>
+<h2>@ViewBag.dtb</h2>
+<h3>@ViewBag.dtb1</h3>
+<h4>@ViewBag.ThanhTien</h4>
